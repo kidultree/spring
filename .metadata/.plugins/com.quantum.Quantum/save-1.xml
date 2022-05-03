@@ -1,0 +1,162 @@
+<?xml version="1.0" ?>
+<SAVED_DATA>
+	<bookmarks>
+		<jdbcDriver className="oracle.jdbc.driver.OracleDriver" name="Oracle JDBC driver" type="ORACLE" version="9.2.0.1.0">
+			<jar fileName="D:\bitjava0314\down\Program\driver\ojdbc14.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="com.mysql.cj.jdbc.Driver" name="com.mysql.cj.jdbc.Driver" type="GENERIC" version="">
+			<jar fileName="D:\bitjava0314\down\Program\driver\mysql-connector-java-8.0.22.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="org.apache.derby.jdbc.EmbeddedDriver" name="Apache Derby Embedded JDBC Driver" type="DERBY" version="10.3.1.4 - (561794)">
+			<jar fileName="C:/Users/jungh/.p2/pool/plugins/com.quantum.derby_3.3.10/lib/derby.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="com.mysql.jdbc.Driver" name="com.mysql.jdbc.Driver" type="MYSQL" version="">
+			<jar fileName="D:\bitjava0314\down\Program\driver\mysql-connector-java-5.0.5-bin.jar" />
+		</jdbcDriver>
+		<bookmark>
+			<name>(Internal) Derby</name>
+			<username>QUANTUM</username>
+			<password />
+			<prompt>false</prompt>
+			<connect>jdbc:derby:C:/Users/jungh/.p2/pool/plugins/com.quantum.derby_3.3.10/data/quantum</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>true</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>org.apache.derby.jdbc.EmbeddedDriver</driver>
+			<type>DERBY</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:/Users/jungh/.p2/pool/plugins/com.quantum.derby_3.3.10/lib/derby.jar</driverLocation>
+			<Other_Schemas schemaRule="useAll" />
+			<quickList />
+			<queryList />
+		</bookmark>
+		<bookmark>
+			<name>mysql_root</name>
+			<username>root</username>
+			<password>1234</password>
+			<prompt>false</prompt>
+			<connect>jdbc:mysql://localhost:3306/bitcamp</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>com.mysql.jdbc.Driver</driver>
+			<type>MYSQL</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>D:\bitjava0314\down\Program\driver\mysql-connector-java-5.0.5-bin.jar</driverLocation>
+			<Other_Schemas schemaRule="useSelected">
+				<schema>bitcamp</schema>
+			</Other_Schemas>
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>select mid('have a nice day',8,4) from dual</queryString>
+				</query>
+				<query>
+					<queryString>select left('아고고 반가워라',3) from dual</queryString>
+				</query>
+				<query>
+					<queryString>select lower('hAppY'), upper('hAppY') from dual</queryString>
+				</query>
+				<query>
+					<queryString>select round(2.5,0) from dual</queryString>
+				</query>
+				<query>
+					<queryString>select round(2.46,0) from dual</queryString>
+				</query>
+				<query>
+					<queryString>select floor(2.46) from dual</queryString>
+				</query>
+				<query>
+					<queryString>select ceil(2.46) from dual</queryString>
+				</query>
+				<query>
+					<queryString>create table bitclass (
+	idx smallint primary key,
+	class varchar(30),
+	price int,
+	gigan smallint)</queryString>
+				</query>
+				<query>
+					<queryString>create table stu(
+	num smallint auto_increment primary key,
+	name varchar(20),
+	idx smallint,
+	sugangday date,
+	constraint stu_fk_idx foreign key(idx) references bitclass(idx))</queryString>
+				</query>
+				<query>
+					<queryString>insert into bitclass values (100,'Java',110000,10)</queryString>
+				</query>
+				<query>
+					<queryString>insert into bitclass values (200,'HTML5',90000,80)</queryString>
+				</query>
+				<query>
+					<queryString>insert into bitclass values (300,'jQuery',130000,12)</queryString>
+				</query>
+				<query>
+					<queryString>insert into bitclass values (400,'Oracle',180000,20)</queryString>
+				</query>
+				<query>
+					<queryString>insert into stu (name, idx, sugangday) values ('kim',200,now())</queryString>
+				</query>
+				<query>
+					<queryString>insert into stu (name, idx, sugangday) values ('lee',100,now())</queryString>
+				</query>
+				<query>
+					<queryString>insert into stu (name, idx, sugangday) values ('son',300,now())</queryString>
+				</query>
+				<query>
+					<queryString>insert into stu (name, idx, sugangday) values ('min',400,now())</queryString>
+				</query>
+				<query>
+					<queryString>select * from bitclass bc, stu where bc.idx=stu.idx</queryString>
+				</query>
+				<query>
+					<queryString>select name, class, price, gigan, sugangday from bitclass bc, stu
+where bc.idx=stu.idx</queryString>
+				</query>
+				<query>
+					<queryString>select name, class, price, gigan, sugangday from bitclass bc inner join stu
+on bc.idx=stu.idx</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+		<bookmark>
+			<name>oracle_bit901</name>
+			<username>bit901</username>
+			<password>a1234</password>
+			<prompt>false</prompt>
+			<connect>jdbc:oracle:thin:@localhost:1521:xe</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>oracle.jdbc.driver.OracleDriver</driver>
+			<type>ORACLE</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>D:\bitjava0314\down\Program\driver\ojdbc14.jar</driverLocation>
+			<Other_Schemas schemaRule="useSelected">
+				<schema>BIT901</schema>
+			</Other_Schemas>
+			<quickList />
+			<queryList />
+		</bookmark>
+	</bookmarks>
+</SAVED_DATA>

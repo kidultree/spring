@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="SpringBootJPA"/>
+<aop-project name="SpringBootEx5"/>
+<aop-project name="SpringEx1"/>
+<aop-project name="SpringEx2"/>
+<aop-project name="SpringMvcEx3"/>
+</aop-reference-model>

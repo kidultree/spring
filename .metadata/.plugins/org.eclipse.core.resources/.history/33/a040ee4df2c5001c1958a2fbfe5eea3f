@@ -1,0 +1,9 @@
+package study4;
+
+public class ShopDto {
+	
+	private String sangpum;
+	private int price;
+	
+
+}

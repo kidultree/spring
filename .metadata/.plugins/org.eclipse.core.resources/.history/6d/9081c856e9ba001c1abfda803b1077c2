@@ -1,0 +1,9 @@
+package day0413;
+
+public class Ex2MysqlPerson {
+
+	public static void main(String[] args) {
+
+	}
+
+}

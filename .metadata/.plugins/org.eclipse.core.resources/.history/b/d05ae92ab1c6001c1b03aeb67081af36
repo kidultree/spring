@@ -1,0 +1,14 @@
+package study.controller.bit.study.day0428;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class StudyFormController {
+
+	@GetMapping("/form1")
+	public String goForm1()
+	{
+		return "form/testform1";
+	}
+}

@@ -1,0 +1,19 @@
+Double=quoted string\=0,0,0,0,0,149,228,84
+Double\ quoted\ string=0,0,0,0,0,0,128,0
+Double\\\ quoted\\\ string=0,0,0,0,0,40,161,152
+Identifier=0,0,0,0,0,243,246,238
+Keyword=0,0,0,0,0,138,198,242
+Multi-line=comment\=0,0,0,0,0,153,150,139
+Multi-line\ comment=0,0,0,0,0,64,128,128
+Multi-line\\\ comment=0,0,0,0,0,85,110,117
+Others=0,0,0,0,0,246,243,232
+SQLEditor.executeSelectedSQL.betweenDelimiter.delimiterType=go
+Single=quoted string\=0,0,0,0,0,149,228,84
+Single\ quoted\ string=0,0,0,0,0,0,0,255
+Single-line=comment\=0,0,0,0,0,153,150,139
+Single-line\ comment=0,0,0,0,0,64,128,128
+Single-line\\\ comment=0,0,0,0,0,85,110,117
+Single\\\ quoted\\\ string=0,0,0,0,0,40,161,152
+Type=0,0,0,0,0,202,230,130
+eclipse.preferences.version=1
+overriddenByCSS=,Double\\ quoted\\ string,Multi-line\\ comment,Single-line\\ comment,Single\\ quoted\\ string,

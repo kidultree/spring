@@ -1,0 +1,17 @@
+package board.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class ListController {
+
+	@GetMapping("/")
+	public ModelAndView list() {
+		ModelAndView mview = new ModelAndView();
+		mview.addObject("message", "스프링 부트 게시판 만들기");
+		mview.setViewName("list");
+		return mview;
+	}
+}

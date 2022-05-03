@@ -1,0 +1,11 @@
+package study1;
+
+public class HelloMain {
+
+	public static void main(String[] args) {
+		//자바방식으로 생성
+		Hello h1 = new Hello();
+		System.out.println(h1.getInfo());
+	}
+
+}

@@ -1,0 +1,69 @@
+<%@page import="mysql.data.GuestDto"%>
+<%@page import="mysql.data.GuestDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<link
+	href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gowun+Dodum&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
+	rel="stylesheet">
+<%
+String num = request.getParameter("num");
+//num에 해당하는 dto 받기
+GuestDao dao = new GuestDao();
+GuestDto dto = dao.getData(num);
+%>
+</head>
+<body>
+	<form id="frm" class="form-inline">
+		<input type="hidden" id="num" value="<%=num%>">
+		<table class="table">
+			<tr>
+				<td width="350">작성자 : <input type="text" id="writer"
+					name="writer" class="form-control" style="width: 100px;"
+					value="<%=dto.getWriter()%>">
+
+				</td>
+				<td rowspan="3" style="cursor: pointer; background-color: orange;"
+					align="center" valign="middle" class="btnsave">수정</td>
+			</tr>
+			<tr>
+				<td><textarea id="content" name="content"
+						style="width: 100%; height: 80px;"><%=dto.getContent()%></textarea></td>
+			</tr>
+			<tr>
+				<td><input type="hidden" id="avata" name="avata"
+					value="<%=dto.getAvata()%>"><br> <%
+ 					for (int i = 1; i <= 10; i++) {%> 
+ 					<img src="../avata/s<%=i%>.JPG" class="imgphoto" idx="<%=i%>">
+					<%
+					if (i == 5) {
+					%> <br> 
+					<%}
+ }
+ %> 
+ <script type="text/javascript">
+		//db에 저장된 이미지에 .select 적용
+		var avata = $("#avata").val();
+		$("img").eq(avata-1).addClass("select"); //고른게 1이면 실제로는 0번지 select
+
+		//아바타 클릭시 idx값을 얻어서 #avata에 출력
+		//클릭한 이미지에만 .select 가 적용되도록 하기 
+		$("img.imgphoto").click(function() {
+			$(this).siblings().removeClass("select");
+			$(this).addClass("select");
+			$("#avata").val($(this).attr("idx"));
+		});
+	</script>
+	</td>
+</tr>
+		</table>
+	</form>
+</body>
+</html>

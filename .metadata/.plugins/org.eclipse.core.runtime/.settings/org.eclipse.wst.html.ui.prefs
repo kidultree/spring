@@ -1,0 +1,16 @@
+commentBorder=\#99968b | null | false | false | false | false
+commentText=\#99968b | null | false | false | false | false
+declBoder=\#f3f6ee | null | false | false | false | false
+doctypeExternalId=\#f3f6ee | null | false | false | false | false
+doctypeExternalPubref=\#f3f6ee | null | false | false | false | false
+doctypeExtrenalSysref=\#f3f6ee | null | false | false | false | false
+doctypeName=\#f3f6ee | null | false | false | false | false
+eclipse.preferences.version=1
+entityReference=\#8ac6f2 | null | false | false | false | false
+org.eclipse.wst.sse.ui.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="true" context\="html_new" deleted\="false" description\="Font, jQuery, BootStrap" enabled\="true" name\="901HTML">&lt;\!DOCTYPE html&gt;&\#13;\r\n&lt;html&gt;&\#13;\r\n&lt;head&gt;&\#13;\r\n&lt;meta charset\="UTF-8"&gt;&\#13;\r\n&lt;title&gt;Insert title here&lt;/title&gt;&\#13;\r\n&lt;link rel\="stylesheet"&\#13;\r\n   href\="https\://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"&gt;&\#13;\r\n&lt;script src\="https\://code.jquery.com/jquery-3.5.0.js"&gt;&lt;/script&gt;&\#13;\r\n&lt;link&\#13;\r\n   href\="https\://fonts.googleapis.com/css2?family\=Gamja+Flower&amp;family\=Gowun+Dodum&amp;family\=Jua&amp;family\=Lobster&amp;family\=Nanum+Pen+Script&amp;display\=swap"&\#13;\r\n   rel\="stylesheet"&gt;&\#13;\r\n   &lt;script src\="https\://code.jquery.com/jquery-3.5.0.js"&gt;&lt;/script&gt;&\#13;\r\n   &lt;/head&gt;&\#13;\r\n   &lt;body&gt;&\#13;\r\n   &\#13;\r\n   &lt;/body&gt;&\#13;\r\n   &lt;/html&gt;</template></templates>
+tagAttributeEquals=\#f6f3e8 | null | false | false | false | false
+tagAttributeName=\#cae682 | null | false | false | false | false
+tagAttributeValue=\#95e454 | null | false | false | false | false
+tagBorder=\#D4C4A9 | null | false | false | false | false
+tagName=\#D4C4A9 | null | false | false | false | false
+xmlContent=\#f6f3e8 | null | false | false | false | false

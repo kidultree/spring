@@ -1,0 +1,28 @@
+package study.controller.bit.study.day0428;
+
+import java.util.Date;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class Study1Controller {
+	@GetMapping("/")
+	public String process1(Model model)
+	{
+		model.addAttribute("message","오늘은 즐거운 목요일!!!!");
+		model.addAttribute("today", new Date());
+		
+		return "hello/study1"; //포워드 (url 안바뀜, model 데이터 전달)
+		
+	}
+	
+	public ModelAndView process2() {
+		ModelAndView mview = new ModelAndView();
+		
+		mview.setViewName("hello/study2");
+		return mview;
+	}
+}

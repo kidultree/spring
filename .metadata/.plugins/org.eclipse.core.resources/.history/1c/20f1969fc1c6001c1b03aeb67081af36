@@ -1,0 +1,26 @@
+package study.controller.bit.study.day0428;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import data.dto.ShopDto;
+
+@Controller
+public class StudyMunjeController {
+
+	@GetMapping("/form5")
+	public String goForm5()
+	{
+		return "form/testform5";
+	}
+	
+	@PostMapping("/read5")
+	public String goRead3(@ModelAttribute ShopDto dto) //dto 통째로 읽어오기
+	{	//@ModelAttribute 는 model 에 shopDto 라는 이름으로 저장되어있다 
+		System.out.println(dto.getSang());
+		return "result/view5";
+	}
+}
+

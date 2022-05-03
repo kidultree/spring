@@ -1,0 +1,75 @@
+package day0413;
+
+import java.sql.Connection;
+import java.util.Scanner;
+
+public class Ex2MysqlPerson {
+	static final String DRIVER = "com.mysql.jdbc.Driver";
+	static final String URL = "jdbc:mysql://localhost:3306/bitcamp"; // 5버전
+//	static final String URL = "jdbc:mysql://localhost:3306/bitcamp?serverTimezone=Asia/Seoul"; //5버전,8버전
+	Scanner sc = new Scanner(System.in);
+
+	public Ex2MysqlPerson() {
+		try {
+			Class.forName(DRIVER);
+			System.out.println("mysql 드라이버 성공!");
+		} catch (ClassNotFoundException e) {
+			System.out.println("mysql 드라이버 실패" + e.getMessage());
+		}
+	}
+
+	public Connection getConnection() {
+		Connection conn = null;
+
+		return conn;
+	}
+
+	public int getMenu() {
+		System.out.println("** 메뉴선택 **");
+		System.out.println("1. 추가  2. 전체출력  3. 삭제  4.분석  5.종료");
+		int n = Integer.parseInt(sc.nextLine());
+		return n;
+	}
+
+	public void personInsert() {
+
+	}
+
+	public void personAllWrite() {
+
+	}
+
+	public void personDelete() {
+
+	}
+
+	public void personBloodGroup() {
+
+	}
+
+	public static void main(String[] args) {
+		Ex2MysqlPerson ex = new Ex2MysqlPerson();
+		while(true) {
+			int n = ex.getMenu();
+			switch(n) {
+			case 1:
+				ex.personInsert;
+				break;
+			case 2:
+				ex.personAllWrite();
+				break;
+			case 3:
+				ex.personDelete();
+				break;
+			case 4:
+				ex.personBloodGroup();
+				
+				default:
+					System.out.println("프로그램 종료!");
+					System.exit(0);
+			}
+			
+		}
+			}
+
+}

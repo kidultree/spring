@@ -1,0 +1,26 @@
+package day0413;
+
+import java.util.Scanner;
+
+public class Ex2MysqlPerson {
+	static final String DRIVER = "com.mysql.jdbc.Driver";
+	static final String URL = "jdbc:mysql://localhost:3306/bitcamp"; // 5버전
+//	static final String URL = "jdbc:mysql://localhost:3306/bitcamp?serverTimezone=Asia/Seoul"; //5버전,8버전
+	Scanner sc = new Scanner(System.in);
+
+	public Ex2MysqlPerson() {
+		try {
+			Class.forName(DRIVER);
+			System.out.println("mysql 드라이버 성공!");
+		} catch (ClassNotFoundException e) {
+			System.out.println("mysql 드라이버 실패" + e.getMessage());
+
+		}
+
+	}
+
+	public static void main(String[] args) {
+		Ex2MysqlPerson ex = new Ex2MysqlPerson();
+	}
+
+}

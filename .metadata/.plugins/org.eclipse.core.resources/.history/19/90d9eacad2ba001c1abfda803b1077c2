@@ -1,0 +1,22 @@
+package day0413;
+
+public class Ex1OracleSawon {
+	static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
+	static final String URL = "jdbc:oracle:thin:@localhost:1521:xe"; 
+	// localhost : 내 컴퓨터 서버(혹은 IP 주소)
+
+	public Ex1OracleSawon() {
+		try {
+			Class.forName(DRIVER);
+			System.out.println("오라클 드라이버 성공!");
+		} catch (ClassNotFoundException e) {
+			System.out.println("오라클 드라이버 실패!"+e.getMessage());;
+		}
+
+	}
+
+	public static void main(String[] args) {
+		Ex1OracleSawon ex = new Ex1OracleSawon();
+	}
+
+}

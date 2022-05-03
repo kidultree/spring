@@ -1,0 +1,219 @@
+<?xml version="1.0" ?>
+<SAVED_DATA>
+	<bookmarks>
+		<jdbcDriver className="oracle.jdbc.driver.OracleDriver" name="Oracle JDBC driver" type="ORACLE" version="9.2.0.1.0">
+			<jar fileName="D:\bitjava0314\down\Program\driver\ojdbc14.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="com.mysql.cj.jdbc.Driver" name="com.mysql.cj.jdbc.Driver" type="GENERIC" version="">
+			<jar fileName="D:\bitjava0314\down\Program\driver\mysql-connector-java-8.0.22.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="org.apache.derby.jdbc.EmbeddedDriver" name="Apache Derby Embedded JDBC Driver" type="DERBY" version="10.3.1.4 - (561794)">
+			<jar fileName="C:/Users/jungh/.p2/pool/plugins/com.quantum.derby_3.3.10/lib/derby.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="com.mysql.jdbc.Driver" name="MySQL-AB JDBC Driver" type="MYSQL" version="mysql-connector-java-5.0.5 ( $Date: 2007-03-01 00:01:06 +0100 (Thu, 01 Mar 2007) $, $Revision: 6329 $ )">
+			<jar fileName="D:\bitjava0314\down\Program\driver\mysql-connector-java-5.0.5-bin.jar" />
+		</jdbcDriver>
+		<bookmark>
+			<name>(Internal) Derby</name>
+			<username>QUANTUM</username>
+			<password />
+			<prompt>false</prompt>
+			<connect>jdbc:derby:C:/Users/jungh/.p2/pool/plugins/com.quantum.derby_3.3.10/data/quantum</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>true</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>org.apache.derby.jdbc.EmbeddedDriver</driver>
+			<type>DERBY</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:/Users/jungh/.p2/pool/plugins/com.quantum.derby_3.3.10/lib/derby.jar</driverLocation>
+			<Other_Schemas schemaRule="useAll" />
+			<quickList />
+			<queryList />
+		</bookmark>
+		<bookmark>
+			<name>mysql_root</name>
+			<username>root</username>
+			<password>1234</password>
+			<prompt>false</prompt>
+			<connect>jdbc:mysql://localhost:3306/bitcamp</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>com.mysql.jdbc.Driver</driver>
+			<type>MYSQL</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>D:\bitjava0314\down\Program\driver\mysql-connector-java-5.0.5-bin.jar</driverLocation>
+			<Other_Schemas schemaRule="useSelected">
+				<schema>bitcamp</schema>
+			</Other_Schemas>
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>update student set writedate = &quot;2021-11-24&quot; where name =&quot;김아중&quot;</queryString>
+				</query>
+				<query>
+					<queryString>update student set writedate = &quot;2020-03-15&quot; where name =&quot;유재석&quot;</queryString>
+				</query>
+				<query>
+					<queryString>update student set writedate = &quot;2019-05-24&quot; where name =&quot;강호동&quot;</queryString>
+				</query>
+				<query>
+					<queryString>update student set writedate = &quot;2022-12-17&quot; where name =&quot;하하&quot;</queryString>
+				</query>
+				<query>
+					<queryString>update student set writedate = &quot;2022-03-02&quot; where name =&quot;황광희&quot;</queryString>
+				</query>
+				<query>
+					<queryString>alter table student change writedate writeday date</queryString>
+				</query>
+				<query>
+					<queryString>update student set photo = &quot;../image/05.png&quot; where name =&quot;설현&quot;</queryString>
+				</query>
+				<query>
+					<queryString>update student set photo = &quot;../image2/1.jpg&quot; where name =&quot;설현&quot;</queryString>
+				</query>
+				<query>
+					<queryString>update student set photo = &quot;../image2/10.jpg&quot; where name =&quot;김아중&quot;</queryString>
+				</query>
+				<query>
+					<queryString>update student set photo = &quot;../image2/30.jpg&quot; where name =&quot;유재석&quot;</queryString>
+				</query>
+				<query>
+					<queryString>update student set photo = &quot;../image2/31.jpg&quot; where name =&quot;강호동&quot;</queryString>
+				</query>
+				<query>
+					<queryString>update student set photo = &quot;../image2/33.jpg&quot; where name =&quot;하하&quot;</queryString>
+				</query>
+				<query>
+					<queryString>update student set photo = &quot;../image2/35.jpg&quot; where name =&quot;황광희&quot;</queryString>
+				</query>
+				<query>
+					<queryString>update student set photo = &quot;../image2/34.jpg&quot; where name =&quot;김우빈&quot;</queryString>
+				</query>
+				<query>
+					<queryString>create table shop(
+	num smallint auto_increment primary key,
+sangpum varchar(50),
+photo varchar(50),
+price int,
+color varchar(20),
+cnt smallint,
+ipgoday varchar(20))</queryString>
+				</query>
+				<query>
+					<queryString>update shop set sangpum='abc' where  num=8</queryString>
+				</query>
+				<query>
+					<queryString>create table guest(
+	num smallint auto_increment primary key,
+	writer varchar(20),
+	pass varchar(10),
+	avata varchar(10),
+	content varchar(2000),
+	writeday datetime)</queryString>
+				</query>
+				<query>
+					<queryString>delete from guest where num = 3</queryString>
+				</query>
+				<query>
+					<queryString>delete from guest where num = 2</queryString>
+				</query>
+				<query>
+					<queryString>delete from guest where num between 1 and 21</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+		<bookmark>
+			<name>oracle_bit901</name>
+			<username>bit901</username>
+			<password>a1234</password>
+			<prompt>false</prompt>
+			<connect>jdbc:oracle:thin:@localhost:1521:xe</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>oracle.jdbc.driver.OracleDriver</driver>
+			<type>ORACLE</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>D:\bitjava0314\down\Program\driver\ojdbc14.jar</driverLocation>
+			<Other_Schemas schemaRule="useSelected">
+				<schema>BIT901</schema>
+			</Other_Schemas>
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>select num,name,buseo,gibon,sudang,gibon+sudang total,to_char(writeday,'yyyy-mm-dd hh:mi') writeday from sawon</queryString>
+				</query>
+				<query>
+					<queryString>select num,name,buseo,gibon,sudang,gibon+sudang total,to_char(writeday,'yyyy-mm-dd hh:mi') writeday from sawon
+where name like '%이%'</queryString>
+				</query>
+				<query>
+					<queryString>select num,name,buseo,gibon,sudang,gibon+sudang total,to_char(writeday,'yyyy-mm-dd hh:mi') writeday from sawon where name like '%이%'</queryString>
+				</query>
+				<query>
+					<queryString>select buseo, round(avg(gibon+sudang),0) pay from sawon group by buseo</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+		<bookmark>
+			<name>mysql_angel</name>
+			<username>angel</username>
+			<password>1234</password>
+			<prompt>false</prompt>
+			<connect>jdbc:mysql://localhost:3306/bitcamp</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>com.mysql.jdbc.Driver</driver>
+			<type>MYSQL</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>D:\bitjava0314\down\Program\driver\mysql-connector-java-5.0.5-bin.jar</driverLocation>
+			<Other_Schemas schemaRule="useSelected">
+				<schema>bitcamp</schema>
+			</Other_Schemas>
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>delete from mycar where num = '1'</queryString>
+				</query>
+				<query>
+					<queryString>delete from mycar where num = '2'</queryString>
+				</query>
+				<query>
+					<queryString>delete from mycar where num = '3'</queryString>
+				</query>
+				<query>
+					<queryString>delete from mycar where num = '4'</queryString>
+				</query>
+				<query>
+					<queryString>delete from mycar where num = '5'</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+	</bookmarks>
+</SAVED_DATA>

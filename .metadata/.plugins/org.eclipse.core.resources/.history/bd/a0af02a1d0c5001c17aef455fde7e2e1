@@ -1,0 +1,5 @@
+package spring.test.bit;
+
+public class TestDto {
+
+}

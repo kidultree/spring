@@ -1,0 +1,8 @@
+package study2;
+
+public class Student {
+	private String name;
+	private Score score;
+	private int age;
+	
+}

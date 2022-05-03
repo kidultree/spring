@@ -1,0 +1,23 @@
+package board.data;
+
+import java.sql.Timestamp;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name = "mycar")
+@Data //mycar라는 테이블이 생성된다 (이미 있다면 수정됨)
+public class MyCarDto {
+
+	
+	private Long num;
+	private String carname;
+	private int carprice;
+	private String carcolor;
+	private String capguip;
+	private Timestamp writeday;
+	
+}

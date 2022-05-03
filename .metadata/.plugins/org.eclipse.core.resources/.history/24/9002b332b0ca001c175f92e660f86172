@@ -1,0 +1,61 @@
+package board.controller;
+
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
+import board.data.BoardDao;
+import board.data.BoardDto;
+
+@Controller
+public class BoardListController {
+	
+	@Autowired
+	BoardDao dao;
+
+	@GetMapping("/")
+	public String home() {
+		return "redirect:board/list";
+	}
+
+	@GetMapping("/board/list")
+	public ModelAndView list()
+	{
+		ModelAndView mview = new ModelAndView();
+		mview.setViewName("list");
+		return mview;
+	}
+
+	@GetMapping("/board/writeform")
+	public String form() {
+		return "writeform";
+	}
+	
+	@PostMapping("/board/insert")
+	public String insert(@ModelAttribute BoardDto dto,
+			@RequestParam MultipartFile upload)
+	{
+		if(!upload.isEmpty()) //사진을 안올릴 경우
+		System.out.println("파일명:"+upload.getOriginalFilename());
+		return "redirect:list";
+	}
+	
+	//파일명 변경하는 함수
+	public String changeFileName(String fileName)
+	{
+		Date date = new Date();
+		int y = date.getYear()+1900;
+		int m = date.getMonth()+1;
+		int d = date.getDate();
+		int h = date.getHours();
+		int mm = date.getMinutes();
+		
+	}
+}

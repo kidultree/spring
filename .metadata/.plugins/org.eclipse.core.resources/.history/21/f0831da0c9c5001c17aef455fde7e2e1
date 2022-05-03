@@ -1,0 +1,12 @@
+package spring.test.bit;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class HappyController {
+
+	public ModelAndView list1() {
+
+	}
+}

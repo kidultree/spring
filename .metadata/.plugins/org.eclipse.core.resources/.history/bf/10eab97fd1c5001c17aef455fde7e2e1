@@ -1,0 +1,11 @@
+package spring.test.bit;
+
+public class TestDto {
+	private String name;
+	private String hp;
+	private String addr;
+	
+	public TestDto() {
+		
+	}
+}

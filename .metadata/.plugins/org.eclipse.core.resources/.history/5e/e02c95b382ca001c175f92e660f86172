@@ -1,0 +1,27 @@
+package board.data;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository //자동으로 bean으로 등록
+public class MyCarDao {
+
+	@Autowired
+	MyCarDaoInter daoInter;
+
+	// insert
+	public void insertCar(MyCarDto dto) {
+		daoInter.save(dto);
+	}
+	
+	//list
+	public List<MyCarDto> getAllCars()
+	{
+		List<MyCarDto> list = daoInter.findAll();
+		return list;
+	}
+	
+	//수정폼
+}

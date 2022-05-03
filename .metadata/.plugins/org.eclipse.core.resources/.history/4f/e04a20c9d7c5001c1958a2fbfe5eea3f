@@ -1,0 +1,27 @@
+package study1;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class HelloMain {
+
+	public static void main(String[] args) {
+		//자바방식으로 생성
+		Hello h1 = new Hello();
+		System.out.println(h1.getInfo());
+		
+		Hello h2 = new Hello();
+		System.out.println(h2.getInfo());
+		System.out.println("** 주소 비교 **");
+		System.out.println(h1.hashCode()+":"+h2.hashCode());
+		
+		System.out.println("** 스프링 방식 **");
+		ApplicationContext context =
+				new ClassPathXmlApplicationContext("appContext.xml");
+		
+		Hello h3 = (Hello)context.getBean("hello"); 
+		//getBean : 반환타입이 object이다 따라서 형변환
+		System.out.println(h3.getInfo());
+	}
+
+}

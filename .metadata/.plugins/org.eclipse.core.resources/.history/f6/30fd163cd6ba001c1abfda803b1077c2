@@ -1,0 +1,102 @@
+package day0413;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class Ex1OracleSawon {
+	static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
+	static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+	// localhost : 내 컴퓨터 서버(혹은 IP 주소)
+
+	Scanner sc = new Scanner(System.in);
+
+	public Ex1OracleSawon() {
+		try {
+			Class.forName(DRIVER);
+			System.out.println("오라클 드라이버 성공!");
+		} catch (ClassNotFoundException e) {
+			System.out.println("오라클 드라이버 실패!" + e.getMessage());
+			;
+		}
+
+	}
+
+	public int getMenu() {
+		System.out.println("** 메뉴 선택 **");
+		System.out.println("1. 사원추가  2.전체사원출력  3.종료");
+		int n = Integer.parseInt(sc.nextLine());
+		return n;
+
+	}
+
+	// db 서버에 연결하는 메서드
+	public Connection getConnection() {
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(URL, "bit901", "a1234");
+//			System.out.println("DB 연결 성공!");
+		} catch (SQLException e) {
+			System.out.println("DB 연결 실패!" + e.getMessage());
+		}
+		return conn;
+
+	}
+
+	public void sawonInsert() {
+		Connection conn = this.getConnection();
+		Statement stmt = null; // Statement - 반드시 sql꺼로!
+
+		System.out.println("사원명 : ");
+		String name = sc.nextLine();
+		System.out.println("부서명(홍보부, 인사부, 교육부):");
+		String buseo = sc.nextLine();
+		System.out.println("기본급");
+		int gibon = Integer.parseInt(sc.nextLine());
+		System.out.println("수당");
+		int sudang = Integer.parseInt(sc.nextLine());
+
+		String sql = "insert into sawon values (seq_bit.nextval,'" + name + "','" + buseo + "'," + gibon + "," + sudang
+				+ ",sysdate)";
+//		System.out.println(sql);
+
+		try {
+			stmt = conn.createStatement();
+		} catch (SQLException e) {
+			System.out.println("insert 오류 :" + e.getMessage());
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+			}
+		}
+	}
+
+	public void sawonAllWrite() {
+		Connection conn = this.getConnection();
+	}
+
+	public static void main(String[] args) {
+		Ex1OracleSawon ex = new Ex1OracleSawon();
+		while (true) {
+			int n = ex.getMenu();
+			switch (n) {
+			case 1:
+				ex.sawonInsert();
+				break;
+			case 2:
+				ex.sawonAllWrite();
+				break;
+			default:
+				System.out.println("프로그램 종료!!");
+				System.exit(0);
+			}
+		}
+	}
+
+}

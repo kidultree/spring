@@ -1,0 +1,28 @@
+package test.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class HelloController {
+	
+	@GetMapping("/hello1")
+	@ResponseBody //리턴타입이 json 타입으로 변환
+	public String hello1() {
+		
+		return "SpringBoot Start!";
+	}
+	
+	@GetMapping
+	@ResponseBody
+	public Map<String, String> hello2(){
+		Map<String, String> map = new HashMap<>();
+		map.put("name", "한가인");
+		return map;
+	}
+
+}

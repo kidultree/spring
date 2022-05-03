@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="hello" class="study1.Hello" />
+
+	<bean id="score" class="study2.Score">
+		<constructor-arg value="100" /><!-- 국어점수 생성자 주입 -->
+		<property name="eng" value="89" /> <!-- setter 주입 -->
+		<property name="mat">
+			<value>80</value>
+		</property>
+	</bean>
+	
+	<bean id="stu" class="study2.Student">
+		<constructor-arg ref="score"/>
+		<property name="name" value="이영자"/>
+		<property name="age" value="30"/>
+	</bean>
+
+</beans>
