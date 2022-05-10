@@ -15,13 +15,91 @@
 	rel="stylesheet">
 <style type="text/css">
 	body {
-	font-size: 2rem;
+	font-size: 1.5rem;
 	font-family: 'Jua';
 	}
+	
+	th{
+      text-align: center;
+   }
+	
+	#myimg{
+		position: absolute;
+		left: 700px;
+		top: 100px;
+		max-width: 200px;
+	}
 </style>
+<script type="text/javascript">
+	$(function(){
+		$("#upload").change(function(){
+			//정규표현식 (확장자 주기)
+			var reg = /(.*?)\/(jpg|jpeg|png|bmp)$/
+			var f=$(this)[0].files[0];
+			if(!f.type.match(reg)){
+				alert("확장자가 이미지파일이 아닙니다");
+				return;
+			}
+			
+			var reader = new FileReader();
+			reader.onload = function(e){
+				$("#myimg").attr("src",e.target.result);
+			}
+			reader.readAsDataURL($(this)[0].files[0]);
+		});
+	});
+</script>
 
 </head>
 <body>
-	
+<div style="margin: 50px 200px;">
+	<form action="update" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="num" value="${dto.num}">
+		
+		<table class="table table-bordered" style="width: 500px;">
+			<caption><b>글 수정</b></caption>
+			<tr>
+				<th width="120" bgcolor="lightyellow">작성자</th>
+					<td>
+						<b>${dto.writer}</b>
+						</td>
+					</tr>
+					<tr>
+				<th width="120" bgcolor="lightyellow">제목</th>
+					<td>
+						<input type="text" name="subject" required="required"
+						class="form-control" value="${dto.subject}">
+						</td>
+					</tr>
+					<tr>
+				<th width="120" bgcolor="lightyellow">사진</th>
+					<td>
+						<input type="file" name="upload" id="upload"
+						class="form-control">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<textarea style = "width: 480px; height: 150px;" name = "content"
+							required="required">${dto.content}</textarea>
+							</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<button type="submit" class="btn btn-info"
+							style="width: 100px;">수정</button>
+						
+							<button type="reset" class="btn btn-info"
+							style="width: 100px;">지우기</button>
+							
+							<button type="button" class="btn btn-info"
+							style="width: 100px;"
+							onclick="location.href='list'">목록</button>
+						</td>
+					</tr>
+		</table>
+	</form>
+	<img src="../save/${dto.photo}" id="myimg" style="max-width: 300px;">
+	</div>
 </body>
 </html>

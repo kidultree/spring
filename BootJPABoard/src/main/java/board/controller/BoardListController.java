@@ -3,6 +3,7 @@ package board.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,7 +32,12 @@ public class BoardListController {
 
 	@GetMapping("/board/list")
 	public ModelAndView list() {
+		
 		ModelAndView mview = new ModelAndView();
+		List<BoardDto> list = dao.getAllDatas();
+		
+		mview.addObject("list",list);
+		mview.addObject("count",list.size());
 		mview.setViewName("list");
 		return mview;
 	}
@@ -89,4 +95,93 @@ public class BoardListController {
 		String s = "photo_"+y + m + d + h + mm + ss + "_" + fileName;
 		return s;
 	}
+	
+	//detail
+	@GetMapping("/board/detail")
+	public ModelAndView detail(@RequestParam Long num)
+	{
+		ModelAndView mview = new ModelAndView();
+		//dao로 부터 dto 얻기
+		BoardDto dto = dao.getData(num);
+		String content = dto.getContent().replace("\n", "<br>");
+		dto.setContent(content);
+		//model 에 저장
+		mview.addObject("dto",dto);
+		mview.setViewName("detail");
+		return mview;
+	}
+	
+	//update
+	@GetMapping("/board/updateform")
+	public ModelAndView updateform(@RequestParam Long num)
+	{
+		ModelAndView mview = new ModelAndView();
+		BoardDto dto=dao.getData(num);
+		
+		mview.addObject("dto", dto);
+		mview.setViewName("updateform");
+		return mview;
+	}
+	
+	@PostMapping("/board/update")
+	public String update(@ModelAttribute BoardDto dto,
+			@RequestParam MultipartFile upload,
+			HttpServletRequest request)
+	{
+		//업로드 할 폴더 실제 경로
+		String path = request.getServletContext().getRealPath("/save");
+		//기존 사일 파일명
+		String oldFileName = dao.getData(dto.getNum()).getPhoto();
+		
+		if(upload.isEmpty()) {
+			//사진을 업로드 안했을 경우 기존 이름으로 수정
+			dto.setPhoto(oldFileName);
+		}else {
+			//새로 저장할 파일명
+			String newFileName = changeFileName(upload.getOriginalFilename());
+			//dto 에 저장
+			dto.setPhoto(newFileName);
+			//기존 사진 삭제
+			deleteFile(path, oldFileName);
+			
+			//사진 업로드
+			try { 
+				upload.transferTo(new File(path+"\\"+newFileName));
+			} catch (IllegalStateException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		//db update
+		dao.updateBoard(dto);
+		//디테일 페이지로 이동
+		return "redirect:detail?num="+dto.getNum();
+	}
+	
+	//파일 삭제하는 메서드 (수정, 삭제시 필요하기 때문)
+	public void deleteFile(String path, String oldFileName)
+	{
+		File file = new File(path+"\\"+oldFileName);
+		if(file.exists()) //해당 경로에 파일이 있을 경우 true
+		{
+			file.delete();
+			System.out.println("파일 삭제 성공");
+		}
+	}
+	
+	@GetMapping("/board/delete")
+	public String delete(@RequestParam Long num,
+			HttpServletRequest request)
+	{
+		String path=request.getServletContext().getRealPath("/save");
+		String fileName = dao.getData(num).getPhoto();
+		
+		//사진 삭제
+		deleteFile(path, fileName);
+		dao.deleteBoard(num);
+		//목록으로 이동
+		return "redirect:list";
+		
+	}
+		
 }

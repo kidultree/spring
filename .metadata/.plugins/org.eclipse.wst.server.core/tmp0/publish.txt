@@ -1,5 +1,8 @@
 #Tomcat publish data
-#Mon May 02 11:50:54 KST 2022
+#Mon May 09 18:01:37 KST 2022
+org.eclipse.jst.j2ee.server\:mysql-connector-java-5.0.5-bin=WEB-INF/lib/mysql-connector-java-5.0.5-bin.jar
+org.eclipse.jst.j2ee.server\:json_simple=WEB-INF/lib/json_simple.jar
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\jungh\\.m2\\repository\\org\\springframework\\spring-web\\5.0.2.RELEASE\\spring-web-5.0.2.RELEASE.jar=WEB-INF/lib/spring-web-5.0.2.RELEASE.jar
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\jungh\\.m2\\repository\\org\\springframework\\spring-web\\5.1.9.RELEASE\\spring-web-5.1.9.RELEASE.jar=WEB-INF/lib/spring-web-5.1.9.RELEASE.jar
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\jungh\\.m2\\repository\\org\\springframework\\spring-web\\5.3.19\\spring-web-5.3.19.jar=WEB-INF/lib/spring-web-5.3.19.jar
+org.eclipse.jst.j2ee.server\:ojdbc14=WEB-INF/lib/ojdbc14.jar

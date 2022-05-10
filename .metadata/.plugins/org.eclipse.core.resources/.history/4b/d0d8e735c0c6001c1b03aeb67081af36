@@ -1,9 +1,0 @@
-package data.dto;
-
-public class PersonDto {
-	
-	private String name;
-	private int java;
-	private int spring;
-	private String photo;
-}

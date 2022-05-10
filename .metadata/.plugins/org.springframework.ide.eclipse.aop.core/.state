@@ -2,7 +2,9 @@
 <aop-reference-model>
 <aop-project name="SpringBootJPA"/>
 <aop-project name="SpringBootEx5"/>
+<aop-project name="BootMiniProject"/>
 <aop-project name="SpringEx1"/>
 <aop-project name="SpringEx2"/>
+<aop-project name="BootJPABoard"/>
 <aop-project name="SpringMvcEx3"/>
 </aop-reference-model>

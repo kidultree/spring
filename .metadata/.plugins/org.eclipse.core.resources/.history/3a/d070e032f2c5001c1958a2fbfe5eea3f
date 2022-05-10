@@ -1,9 +1,0 @@
-package study4;
-
-public class MysqlDao {
-	public void insertShop(ShopDto dto)
-	{
-		System.out.println(dto.getSangpum()+" "
-	+dto.getPrice()+" 원짜리 추가");
-	}
-}

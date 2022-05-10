@@ -1,9 +1,0 @@
-package repository;
-
-import hello.hellospring.repository.MemberRepository;
-import hello.hellospring.repository.MemoryMemberRepository;
-
-class MemoryMemberRepositoryTest {
-
-	MemberRepository repository = new MemoryMemberRepository()
-}

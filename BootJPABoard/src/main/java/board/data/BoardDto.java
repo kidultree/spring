@@ -21,7 +21,7 @@ public class BoardDto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long num;
 	
-	@Column(name = "writer")
+	@Column(name = "writer", updatable = false)
 	private String writer;
 	
 	@Column(name = "subject")
