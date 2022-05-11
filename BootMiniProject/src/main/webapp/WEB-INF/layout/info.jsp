@@ -14,9 +14,9 @@
 	href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gowun+Dodum&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
 	rel="stylesheet">
 <style type="text/css">
-	body {
-	font-size: 2rem;
-	font-family: 'Jua';
+	div.info {
+	font-size: 2.8rem;
+	font-family: 'Nanum Pen Script';
 	}
 </style>
 

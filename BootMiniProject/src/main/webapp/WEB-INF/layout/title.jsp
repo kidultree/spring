@@ -19,6 +19,7 @@
 	position: absolute;
 	left: 1050px;
 	top: 80px;
+	font-size: 1.3em;
 	}
 	
 </style>
@@ -27,7 +28,8 @@
 <c:set var="root" value="<%=request.getContextPath()%>"/>
 <body>
 	<a href="/">
-	<img src="${root}/image/title.png" width="1000"></a>
+	<img src="${root}/image/title.png" width="1000">
+	</a>
 	<div class="login">
       <c:if test="${sessionScope.loginok==null}">
          <button type="button" class="btn btn-success" style="width:100px;" 

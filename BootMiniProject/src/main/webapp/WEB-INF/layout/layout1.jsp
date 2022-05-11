@@ -20,15 +20,6 @@ body {
 	font-family: 'Jua';
 }
 
-div.layout div {
-	border: 1px solid black;
-}
-
-	body{
-	font-size: 2rem;
-	font-family: 'Jua';
-	}
-	
 	div.layout div{
 		border : 0px solid black;
 	}
@@ -67,7 +58,6 @@ div.layout div {
 	border: 2px solid gray;
 	}
 	
-	
 	div.layout div.main
 	{
 	position: absolute;
@@ -77,6 +67,7 @@ div.layout div {
 	height: 600px;
 	
 	}
+	
 </style>
 
 </head>
