@@ -16,4 +16,9 @@ public interface BoardMapperInter {
 	public void insertBoard(BoardDto dto);
 	public void updateReadCount(int num);
 	public BoardDto getData(int num);
+	public void updateChu(int num);
+	public void updateTotalChu(int num);
+	public void updateChu(Map <String, Integer> map);
+	public void updateBoard(BoardDto dto);
+	public void deleteBoard(int num);
 }

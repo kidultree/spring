@@ -17,7 +17,50 @@
 	div.content {
 	font-family: 'Jua';
 	}
+	
+	span.heart{
+		cursor: pointer;
+		font-size: 20px;
+	}
+	
+	td.asave{
+		font-size: 25px;
+		font-weight: bold;
+		cursor: pointer;
+		background-color: #ebebeb;
+	}
+	
+	#afrm{
+		margin-top: 20px;
+	}
 </style>
+<script type="text/javascript">
+$(function () {
+   $("span.heart").click(function () {
+      var num=$(this).attr("num");
+      var c=$(this).attr("class");
+      var chu;
+      if(c=="glyphicon glyphicon-heart-empty heart"){
+         chu=1;
+         $(this).attr("class","glyphicon glyphicon-heart heart");
+      }else{
+         chu=0;
+         $(this).attr("class","glyphicon glyphicon-heart-empty heart");
+      }
+      console.log(num,chu);
+      $.ajax({
+         type:"get",
+         dataType:"json",
+         url:"chu",
+         data:{"num":num,"chu":chu},
+         success:function(data){
+            $("span.totalchu").text(data.totalchu);
+         }
+      });
+   });
+});
+
+</script>
 
 </head>
 <body>
@@ -28,6 +71,7 @@
 		<span style="color: gray;">
 			<fmt:formatDate value="${dto.writeday}" pattern="yyyy-MM-dd HH:mm"/>
 		</span>
+		<span style="float: right; color: gray;"><b>조회&nbsp;${dto.readcount}</b></span>
 		<br><br>
 		<pre style="background-color: white; border: none; font-family:'Jua'; font-size: 1.5em;"><b>${dto.content}</b></pre>
 		<br><br>
@@ -40,6 +84,54 @@
 			</c:forTokens>
 		</c:if>
 		<br><br>
+		<!-- 하트 누르면 변하는 부분 -->
+		<div class="likes">
+				<span class="glyphicon glyphicon-heart-empty heart" 
+				style="color: red;" num="${dto.num}"></span>
+			<span class="totalchu">${dto.totalchu}</span>
+			<script type="text/javascript">
+				if(${dto.chu==0}){
+					$("span.heart").attr("class","glyphicon glyphicon-heart-empty heart");
+				}else{
+					$("span.heart").attr("class","glyphicon glyphicon-heart heart");
+				}
+			</script>
+			
+			&nbsp;
+			<span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;
+			<span class="answercnt">0</span>
+			
+			<!-- 댓글 부분 -->
+			<h4 class="alist" style="cursor: pointer;"><b>댓글</b></h4>
+			<div class="alist">댓글 목록 나올 곳 ~~~</div>
+			<script type="text/javascript">
+				$("h4.alist").click(function(){
+					$("div.alist").slideToggle('fast');
+				});
+			</script>
+			<!-- 로그인을 한 상태에서만 댓글 입력을 할 수 있다 -->
+			<c:if test="${sessionScope.loginok!=null}">
+			<form id="afrm">
+				<!--  hidden -->
+				<input type="hidden" name="num" value="${dto.num}">
+				<input type="hidden" name="id" value="${sessionScope.loginid}">
+				<input type="hidden" name="name" value="${sessionScope.loginname}">
+				<table style="width: 600px;" class="table table-bordered">
+					<tr height="70">
+						<td>
+							<textarea style="width: 100%; height: 70px;"
+							name="message" id="message"
+							class="form-control"
+							placeholder="댓글을 남겨주세요"></textarea>
+						</td>
+						<td class="asave">
+							저장
+						</td>
+					</tr>
+				</table>
+			</form>
+			</c:if>
+		</div>
 		<div class="buttons">
 			<button type="button" class="btn btn-default"
 			onclick="location.href='list?currentPage=${currentPage}'">목록</button>
@@ -47,12 +139,32 @@
 			<button type="button" class="btn btn-default" 
 			onclick="location.href='form?num=${dto.num}&reg=${dto.reg}&restep=${dto.restep}&relevel=${dto.relevel}&currentPage=${currentPage}'">답글</button>
 			
-			<c:if test="${sessionScope.loginok!=null == dto.name == loginname}">
-			<button type="button" class="btn btn-success">수정
-			</button>
-			<button type="button" class="btn btn-danger">삭제
-			</button>
+			<c:if test="${sessionScope.loginok!=null}">
+				<c:if test="${sessionScope.loginid==dto.id}">
+				<button type="button" class="btn btn-default" onclick="location.href='updateform?num=${dto.num}&currentPage=${currentPage}'">
+				<span class="glyphicon glyphicon-edit"></span>
+				수정</button>
+				
+				<button type="button" class="btn btn-default" id="delbtn" onclick="location.href='delete?num=${dto.num}&currentPage=${currentPage}'">
+				<span class="glyphicon glyphicon-trash"></span>
+				삭제</button>
+				
+				<!-- 삭제시 컨펌 -->
+               <script type="text/javascript">
+               $(document).ready(function() {
+                  $("#delbtn").click(function(){
+                     var choice = confirm("삭제 하시겠습니까");
+                     var del = "delete?num=${dto.num}&currentPage=${currentPage}";
+                     if(choice){
+                        location.assign(del);
+                     };
+                  });
+                  
+               });
+               </script>
+				</c:if>
 			</c:if>
+			
       </div>
 	</div>
 </body>

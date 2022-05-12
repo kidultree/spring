@@ -80,5 +80,24 @@ public class BoardService implements BoardServiceInter {
 	public BoardDto getData(int num) {
 		return mapper.getData(num);
 	}
+	
+	@Override
+	public void updateChu(int chu, int num) {
+		//System.out.println(chu+","+num);
+		Map<String, Integer> map = new HashMap<>();
+		map.put("chu", chu);
+		map.put("num", num);
+		mapper.updateChu(map);
+	}
+	
+	@Override
+	public void updateBoard(BoardDto dto) {
+		mapper.updateBoard(dto);
+	}
+	
+	@Override
+	public void deleteBoard(int num) {
+		mapper.deleteBoard(num);
+	}
 
 }
