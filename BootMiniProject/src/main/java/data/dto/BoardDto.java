@@ -22,4 +22,5 @@ public class BoardDto {
 	private int reg;
 	private int restep;
 	private int relevel;
+	private int acount;
 }

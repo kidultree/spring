@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import Util.FileUtil;
 import data.dto.BoardDto;
+import data.mapper.AnswerMapperInter;
 import data.mapper.MemberMapperInter;
 import data.service.BoardService;
 
@@ -32,6 +33,9 @@ public class BoardController {
 
 	@Autowired
 	private BoardService service;
+	
+	@Autowired
+	private AnswerMapperInter answerMapper;
 
 	@Autowired
 	private MemberMapperInter memberMapper;
@@ -88,6 +92,9 @@ public class BoardController {
 			String id = dto.getId();
 			String name = memberMapper.getSearchName(id);
 			dto.setName(name);
+			//댓글 갯수 acount에 넣기
+			int acount = answerMapper.getAnswerList(dto.getNum()).size();
+			dto.setAcount(acount);
 		}
 		
 		mview.addObject("currentPage",currentPage);

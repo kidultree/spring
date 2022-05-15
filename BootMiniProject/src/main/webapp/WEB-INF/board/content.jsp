@@ -33,9 +33,111 @@
 	#afrm{
 		margin-top: 20px;
 	}
+	
+	table.t{
+	margin-left: 20px;
+	}
+	
+	pre.m{
+		background-color: white;
+		border: none;
+		font-size: 14px;
+		font-family:'Gowun Dodum';
+	}
+	
+	span.day{
+		float: right;
+		color: gray;
+		font-size: 12px;
+	}
+	
+	span.adel{
+		margin-left: 10px;
+		color: red;
+		cursor: pointer;
+	}
 </style>
 <script type="text/javascript">
+
+	//댓글 출력하는 함수
+	function list(){
+		var num=${dto.num};
+		var login ='${sessionScope.loginok}';
+		var loginid='${sessionScope.loginid}';
+		console.log(login,loginid);
+		
+		$.ajax({
+			type:"get",
+			dataType:"json",
+			url:"../answer/list",
+			data:{"num":num},
+			success:function(data){
+				//댓글 갯수
+				$("span.answercnt").text(data.count);
+				var s="";
+				s+="<table style='width: 600px;'>";
+				$.each(data.alist, function(i,d){
+					s+="<tr>";
+					s+="<td width='70'>"+d.name+"</td>";
+					s+="<td width=320><pre class='m'>"+d.message+"</pre></td>";
+					s+="<td><span class='day'>&nbsp;"+d.writeday;
+					if(login=='yes' && loginid==d.id){ //자기가 쓴 댓글에만 삭제 가능표시
+						s+="&nbsp;<span class='glyphicon glyphicon-remove adel' idx="+d.idx+"></span>";
+					}
+					s+="</td>";
+					s+="</tr>";
+				});
+				
+				s+="</table>";
+				$("div.alist").html(s);
+			}
+		});
+	}
+	
+	
 $(function () {
+	//처음 로딩 시 댓글 출력
+	list();
+	
+	//댓글 삭제 이벤트
+	$(document).on("click","span.adel",function(){
+		//idx 얻기
+		var idx=$(this).attr("idx");
+		//confim - true 일 경우 ajax 함수를 통해서
+		//댓글 삭제 후 목록 다시 출력
+		var ans=confirm("삭제하려면 [확인]을 눌러주세요");
+		if(ans){
+			$.ajax({
+				type:"get",
+				dataType: "text",
+				data:{"idx":idx},
+				url:"../answer/delete",
+				success:function(){
+					list();	
+				}
+			});
+		}
+	});
+
+	//댓글 저장 이벤트
+
+	$("td.asave").click(function(){
+		//전체 폼 데이터 읽기
+		var data = $("#afrm").serialize();
+		//alert(data);
+		$.ajax({
+			type:"post",
+			dataType:"text",
+			url:"../answer/insert",
+			data: data,
+			success: function(){
+				list();
+				$("#message").val("");
+			}
+		});
+	});
+	
+	
    $("span.heart").click(function () {
       var num=$(this).attr("num");
       var c=$(this).attr("class");
@@ -103,7 +205,7 @@ $(function () {
 			
 			<!-- 댓글 부분 -->
 			<h4 class="alist" style="cursor: pointer;"><b>댓글</b></h4>
-			<div class="alist">댓글 목록 나올 곳 ~~~</div>
+			<div class="alist" id="alist">&nbsp;&nbsp;댓글 목록 나올 곳 ~~~</div>
 			<script type="text/javascript">
 				$("h4.alist").click(function(){
 					$("div.alist").slideToggle('fast');

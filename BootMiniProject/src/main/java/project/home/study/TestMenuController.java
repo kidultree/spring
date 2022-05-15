@@ -11,13 +11,7 @@ public class TestMenuController {
 	{
 		return "/layout/main";
 	}
-	
-	@GetMapping("/shop/form")
-	public String home2() 
-	{
-		return "/shop/shopform";
-	}
-	
+
 	@GetMapping("/load/map")
 	public String map() {
 		return "/sub/layout/map";
