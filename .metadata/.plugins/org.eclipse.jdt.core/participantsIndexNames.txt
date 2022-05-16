@@ -21,6 +21,8 @@ D:\bitjava0314\javawork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\88
 \BootMiniProject\src\main\java
 D:\bitjava0314\javawork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1149421445.index
 \SpringMvcEx3\src\main\java
+D:\bitjava0314\javawork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3744017307.index
+\BootMiniProject\src\main\java
 D:\bitjava0314\javawork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2124793901.index
 \BootMiniProject\src\main\java
 D:\bitjava0314\javawork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1815436722.index

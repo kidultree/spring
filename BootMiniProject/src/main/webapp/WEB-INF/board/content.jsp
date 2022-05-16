@@ -261,7 +261,6 @@ $(function () {
                         location.assign(del);
                      };
                   });
-                  
                });
                </script>
 				</c:if>

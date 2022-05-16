@@ -14,4 +14,5 @@ public class ShopDto {
 	private String subject;
 	private String content;
 	private String ipgoday;
+	private String photo;
 }
